@@ -41,8 +41,8 @@ table_format_left = TABLE_SYMBOL + ' ' * space_length
 table_format_right = ' ' * space_length + TABLE_SYMBOL
 
 table_frame = TABLE_SYMBOL * space_length
-table_lab = TABLE_SYMBOL + ' ' * ((space_length - len(table_lab) - 1) // 2) + 'Лабораторная работа № 1' + ' ' * ((space_length - len(table_lab) - 1) // 2) + TABLE_SYMBOL
-table_group = TABLE_SYMBOL + ' ' * ((space_length - len(table_group) - 1) // 2) + 'Выполнил(а): ст. гр. ' + user_class_number + ' ' * ((space_length - len(table_group) - 1) // 2) + TABLE_SYMBOL
+table_lab = TABLE_SYMBOL + ' ' * ((space_length - len(table_lab)) // 2) + 'Лабораторная работа № 1' + ' ' * ((space_length - len(table_lab)) // 2) + TABLE_SYMBOL
+table_group = TABLE_SYMBOL + ' ' * ((space_length - len(table_group)) // 2) + 'Выполнил(а): ст. гр. ' + user_class_number + ' ' * ((space_length - len(table_group)) // 2) + TABLE_SYMBOL
 table_student = TABLE_SYMBOL + ' ' * ((space_length - len(user_full_name) - 1) // 2) + user_full_name + ' ' * ((space_length - len(user_full_name) - 1) // 2) + TABLE_SYMBOL
 
 print(table_frame, table_lab, table_group, table_student, table_frame, sep='\n')
