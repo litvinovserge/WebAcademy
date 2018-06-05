@@ -29,16 +29,16 @@ table_group = TABLE_SYMBOL + 'Выполнил(а): ст. гр. ' + user_class_n
 table_student = TABLE_SYMBOL + user_2nd_name + ' ' + user_1st_name + ' '  + user_3rd_name + TABLE_SYMBOL
 
 if len(table_lab) > len(table_group) and len(table_lab) > len(table_student):
-    space_length = len(table_lab)
+    space_length = (len(table_lab) - 2) // 2
 elif len(table_group) > len(table_lab) and len(table_group) > len(table_student):
-    space_length = len(table_group)
+    space_length = (len(table_group) - 2) // 2
 else:
-    space_length = len(table_student)
+    space_length = (len(table_student) - 2) // 2
 
-table_format_left = TABLE_SYMBOL + ' ' * (space_length // 2)
-table_format_right = ' ' * (space_length // 2) + TABLE_SYMBOL
+table_format_left = TABLE_SYMBOL + ' ' * space_length
+table_format_right = ' ' * space_length + TABLE_SYMBOL
 
-table_frame =  TABLE_SYMBOL * (space_length * 2)
+table_frame =  TABLE_SYMBOL * (space_length * 4)
 table_lab = table_format_left + 'Лабораторная работа № 1' + table_format_right
 table_group = table_format_left + 'Выполнил(а): ст. гр. ' + user_class_number + table_format_right
 table_student = table_format_left + user_2nd_name + ' ' + user_1st_name + ' '  + user_3rd_name + table_format_right
