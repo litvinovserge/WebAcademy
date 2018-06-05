@@ -37,9 +37,6 @@ elif len(table_group) > len(table_lab) and len(table_group) > len(table_student)
 else:
     space_length = len(table_student)
 
-table_format_left = TABLE_SYMBOL + ' ' * space_length
-table_format_right = ' ' * space_length + TABLE_SYMBOL
-
 table_frame = TABLE_SYMBOL * space_length
 table_lab = TABLE_SYMBOL + ' ' * ((space_length - len(table_lab)) // 2) + 'Лабораторная работа № 1' + ' ' * ((space_length - len(table_lab)) // 2) + TABLE_SYMBOL
 table_group = TABLE_SYMBOL + ' ' * ((space_length - len(table_group)) // 2) + 'Выполнил(а): ст. гр. ' + user_class_number + ' ' * ((space_length - len(table_group)) // 2) + TABLE_SYMBOL
