@@ -3,7 +3,7 @@
 '''
 
 def even_finder(user_number):
-    user_number = int(user_number)
+    user_number = abs(int(user_number))
     j = 0
     for i in range(1, 3 * user_number):
         if i % 2 == 0:
