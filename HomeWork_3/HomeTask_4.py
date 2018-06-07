@@ -19,12 +19,13 @@ def is_prime(a):
             return True
 
 # начало основной программы
-j = 1
-for i in range(1, 500):
+counter = 10 # задаем требуемое кол-во выводимых простых чисел
+j = 0
+for i in range(1, 3 * counter):
     if is_prime(i):
         print(i)
         j += 1
-    if j > 10:
+    if j >= counter:
         break
 
 
