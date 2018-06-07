@@ -9,8 +9,11 @@ def calc_factorial(n):
     elif n == 0 or n == 1:
         return 1
     else:
-        for i in range(2, n+1):
-            factorial = (n - 1) * n
+        factorial = 1
+        i = 0
+        while i < n:
+            i += 1
+            factorial *= i
         return factorial
 
 # начало основной программы
