@@ -11,7 +11,7 @@ def number_analysis(tens):
         while tens > 10:
             tens = tens / 10
             counter += 1
-    return counter
+        return counter
 
 # начало основной программы
 user_data = input('Введите любое число: ')
