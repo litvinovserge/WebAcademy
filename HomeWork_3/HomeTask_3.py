@@ -13,10 +13,9 @@ def is_prime(a):
         print('Число', a, 'является сложным')
         return False
     else:
-        for i in range (3, a + 1):
+        for i in range(3, a + 1):
             if a % i == 0:
                 checker = checker + 1
-                return False
         if checker >= 2:
             print('Число', a, 'является сложным')
             return False
