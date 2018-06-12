@@ -6,7 +6,7 @@
 def my_func(input_list):
     counter = 0
     my_sum = 0
-    for i in range(len(input_list)):
+    for i in range(len(input_list) + 1):
         if counter >= 2:
             return my_sum
         elif input_list[i] % 2 == 0:
@@ -14,5 +14,5 @@ def my_func(input_list):
             counter += 1
 
 if __name__ == '__main__':
-    s_data = [1, 2, 3, 4, 5, 6, 7, 8]
+    s_data = [1, 3, 3, 3, 5, 6, 1, 8]
     print('Cумма первых двух четных элементов списка', s_data, 'равна =', my_func(s_data))
