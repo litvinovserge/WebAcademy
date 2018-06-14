@@ -32,7 +32,7 @@ if __name__ == '__main__':
                          )
 
     # 1 - Заменить по главной диагонали все числа на 0
-    if int(user_options) == 1:
+    if user_options == '1':
         my_list = list_generator(10)
         print('Начальный массив')
         list_decorator(my_list)
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         list_decorator(my_list)
 
     # 2 - Заменить все четные числа на 1, а не четные на 0
-    elif int(user_options) == 2:
+    elif user_options == '2':
         my_list = list_generator(10)
         print('Начальный массив')
         list_decorator(my_list)
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         list_decorator(my_list)
 
     # 3 - Вывести строку таблицы с максимальной суммой элементов
-    elif int(user_options) == 3:
+    elif user_options == '3':
         buf_max = 0
         t_list = []
         for i in range(len(my_list)):
@@ -71,5 +71,6 @@ if __name__ == '__main__':
                 t_list = my_list[i]
         print(t_list)
 
+    # обработка исключений для ввода
     else:
         print('Ошибочный ввод')
