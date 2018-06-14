@@ -8,8 +8,9 @@
 import random
 
 def list_generator(list_dimension):
-    my_list = [[None] * list_dimension] * list_dimension
+    my_list = [None] * list_dimension
     for i in range(list_dimension):
+        my_list[i] = [None] * list_dimension
         for j in range(list_dimension):
             my_list[i][j] = random.randint(100, 999)
     return(my_list)
@@ -55,7 +56,7 @@ if __name__ == '__main__':
             for j in range(len(my_list)):
                 if my_list[i][j] % 2 == 0:
                     my_list[i][j] = 1
-                else:
+                elif my_list[i][j] % 2 != 0:
                     my_list[i][j] = 0
 
         print('Меняем все четные числа на 1, а не четные на 0')

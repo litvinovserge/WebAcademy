@@ -8,8 +8,9 @@
 import random
 
 def list_generator(list_dimension):
-    my_list = [[None] * list_dimension] * list_dimension
+    my_list = [None] * list_dimension
     for i in range(list_dimension):
+        my_list[i] = [None] * list_dimension
         for j in range(list_dimension):
             my_list[i][j] = random.randint(100, 999)
     return my_list
