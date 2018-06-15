@@ -15,14 +15,6 @@ def list_generator(list_dimension):
             my_list[i][j] = random.randint(100, 999)
     return(my_list)
 
-def list_generator_test(list_dimension):
-    my_list = [None] * list_dimension
-    for i in range(list_dimension):
-        my_list[i] = [None] * list_dimension
-        for j in range(list_dimension):
-            my_list[i][j] = j
-    return(my_list)
-
 def list_decorator(some_list):
     for i in range(len(some_list)):
         for j in range(len(some_list[i])):
@@ -42,7 +34,7 @@ if __name__ == '__main__':
                          )
 
     # инициализация случайного массива NxN размерности
-    my_list = list_generator_test(10)
+    my_list = list_generator(10)
     print('Начальный массив')
     list_decorator(my_list)
 
@@ -81,7 +73,7 @@ if __name__ == '__main__':
 
     # 4 - Повернуть таблицу на 90 градусов, по часовой и против часовой стрелки
     elif user_options == '4':
-        buf = list_generator_test(10)
+        buf = list_generator(10)
 
         # 4.1 Поворачиваем таблицу по часовой стрелке
         for i in range(len(my_list)):
