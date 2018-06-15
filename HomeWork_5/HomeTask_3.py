@@ -25,19 +25,21 @@ def list_decorator(some_list):
         print()
 
 if __name__ == '__main__':
-    user_options = input('Какое действие Вы хотите произвести?' + '\n' + \
-                         '1 - Заменить по главной диагонали матрицы все числа на 0' + '\n' \
-                         '2 - Заменить все четные числа матрицы на 1, а не четные на 0' + '\n' \
+    user_options = input('Какое действие Вы хотите произвести?' + '\n'
+                         '1 - Заменить по главной диагонали матрицы все числа на 0' + '\n'
+                         '2 - Заменить все четные числа матрицы на 1, а не четные на 0' + '\n'
                          '3 - Вывести строку таблицы с максимальной суммой элементов' + '\n'
-                         '*****************'  + '\n'
+                         '4 - Повернуть таблицу на 90 градусов, по часовой, против часовой' + '\n'
+                         '*****************' + '\n'
                          )
+
+    # инициализация случайного массива NxN размерности
+    my_list = list_generator(10)
+    print('Начальный массив')
+    list_decorator(my_list)
 
     # 1 - Заменить по главной диагонали все числа на 0
     if user_options == '1':
-        my_list = list_generator(10)
-        print('Начальный массив')
-        list_decorator(my_list)
-
         for i in range(len(my_list)):
             for j in range(len(my_list)):
                 if j == i:
@@ -48,10 +50,6 @@ if __name__ == '__main__':
 
     # 2 - Заменить все четные числа на 1, а не четные на 0
     elif user_options == '2':
-        my_list = list_generator(10)
-        print('Начальный массив')
-        list_decorator(my_list)
-
         for i in range(len(my_list)):
             for j in range(len(my_list)):
                 if my_list[i][j] % 2 == 0:
@@ -70,7 +68,12 @@ if __name__ == '__main__':
             if sum(my_list[i]) > buf_max:
                 buf_max = sum(my_list[i])
                 t_list = my_list[i]
-        print(t_list)
+
+        print('Строка с максимальной суммой элементов данного массива:', t_list, sep='\n')
+
+    # 4 - Повернуть таблицу на 90 градусов, по часовой, против часовой
+    elif user_options == '4':
+        print('Please, try again later')
 
     # обработка исключений для ввода
     else:
