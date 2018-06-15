@@ -5,7 +5,7 @@
 3: Вывести строку таблицы с максимальной суммой элементов
 4: Повернуть таблицу на 90 градусов, по часовой, против часовой
 """
-import random
+import random, copy
 
 def list_generator(list_dimension):
     my_list = [None] * list_dimension
@@ -13,6 +13,14 @@ def list_generator(list_dimension):
         my_list[i] = [None] * list_dimension
         for j in range(list_dimension):
             my_list[i][j] = random.randint(100, 999)
+    return(my_list)
+
+def list_generator_test(list_dimension):
+    my_list = [None] * list_dimension
+    for i in range(list_dimension):
+        my_list[i] = [None] * list_dimension
+        for j in range(list_dimension):
+            my_list[i][j] = j
     return(my_list)
 
 def list_decorator(some_list):
@@ -34,7 +42,7 @@ if __name__ == '__main__':
                          )
 
     # инициализация случайного массива NxN размерности
-    my_list = list_generator(10)
+    my_list = list_generator_test(10)
     print('Начальный массив')
     list_decorator(my_list)
 
@@ -54,7 +62,7 @@ if __name__ == '__main__':
             for j in range(len(my_list)):
                 if my_list[i][j] % 2 == 0:
                     my_list[i][j] = 1
-                elif my_list[i][j] % 2 != 0:
+                else:
                     my_list[i][j] = 0
 
         print('Меняем все четные числа на 1, а не четные на 0')
@@ -73,7 +81,21 @@ if __name__ == '__main__':
 
     # 4 - Повернуть таблицу на 90 градусов, по часовой, против часовой
     elif user_options == '4':
-        print('Please, try again later')
+        buf = list_generator_test(10)
+
+        # 4.1 Поворачиваем таблицу по часовой стрелке
+        for i in range(len(my_list)):
+            for j in range(len(my_list)):
+                buf[i][j] = my_list[j][i]
+        print('Поворачиваем таблицу на 90 градусов по часовй стрелке')
+        list_decorator(buf)
+
+        # 4.2 Поворачиваем таблицу против часовой стрелки
+        for i in range(len(my_list)):
+            for j in range(len(my_list)):
+                buf[i][j] = my_list[j][len(my_list) - 1 - i]
+        print('Поворачиваем таблицу на 90 градусов против часовой стрелки')
+        list_decorator(buf)
 
     # обработка исключений для ввода
     else:
