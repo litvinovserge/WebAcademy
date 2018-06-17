@@ -20,11 +20,20 @@ currency_list = [
 def exchanger(base_cur, some_sum, out_cur):
     first_currency_index = 0
     second_currency_index = 0
+    counter = 1
     for i in range(len(currency_list)):
-        if base_cur.upper() == currency_list[i][0]:
+        if base_cur.upper() == out_cur.upper():
+            return some_sum
+        elif base_cur.upper() == currency_list[i][0]:
             first_currency_index = i
         elif out_cur.upper() == currency_list[i][0]:
             second_currency_index = i
+        else:
+            counter += 1
+
+    # обработка ввода валют
+    if counter >= len(currency_list):
+        return 'Вы некорректно задали одну из валют!'
 
     result = float(some_sum) * currency_list[first_currency_index][1] / currency_list[second_currency_index][1]
     return round(result, 2)
@@ -34,6 +43,11 @@ if __name__ == '__main__':
     user_1cur = input('Введите валюту (UAH, EUR, USD, RUB, FNT): ')
     user_sum = input('Введите сумму: ')
     user_2cur = input('В какой валюте выдать результат? ')
+
+    # проверка ввода данных
+    if not user_sum.isdigit() or not user_1cur.isalpha() or not user_2cur.isalpha():
+        print('Вы некорректно задали начальные параметры!')
+        exit()
 
     # значения по умолчанию
     if not user_1cur:
