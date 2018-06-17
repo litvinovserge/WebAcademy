@@ -44,11 +44,6 @@ if __name__ == '__main__':
     user_sum = input('Введите сумму: ')
     user_2cur = input('В какой валюте выдать результат? ')
 
-    # проверка ввода данных
-    if not user_sum.isdigit() or not user_1cur.isalpha() or not user_2cur.isalpha():
-        print('Вы некорректно задали начальные параметры!')
-        exit()
-
     # значения по умолчанию
     if not user_1cur:
         user_1cur = 'EUR'
@@ -56,6 +51,12 @@ if __name__ == '__main__':
         user_sum = 100
     if not user_2cur:
         user_2cur = 'USD'
+
+    # проверка ввода данных
+    if not user_sum.isdigit() or not user_1cur.isalpha() or not user_2cur.isalpha():
+        print('Вы некорректно задали начальные параметры!')
+        exit()
+
 
     print('*' * 10, '\n'
           'Результат конвертации:',
