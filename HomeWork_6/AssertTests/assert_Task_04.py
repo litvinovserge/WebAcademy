@@ -2,15 +2,6 @@
 В списке найти минимальный и максимальный элементы,
 поменять их местами.
 """
-import random
-LIST_SIZE = 10
-
-
-def list_generator(list_dimension):
-    my_list = []
-    for i in range(list_dimension):
-        my_list.append(random.randint(-9, 9))
-    return my_list
 
 
 def list_converter(some_list):
@@ -22,7 +13,7 @@ def list_converter(some_list):
         if some_list[i] > temp_max:
             temp_max = some_list[i]
             index_max = i
-        elif some_list[i] < temp_min:
+        if some_list[i] < temp_min:
             temp_min = some_list[i]
             index_min = i
 
@@ -32,8 +23,6 @@ def list_converter(some_list):
 
 
 if __name__ == '__main__':
-    def_list = list_generator(LIST_SIZE)
-    print('Список до преобразований:', def_list)
-    print('Список после преобразова:', list_converter(def_list))
-
-
+    assert list_converter([1, 2, 3]) == [3, 2, 1]
+    assert list_converter([1, 1, 1]) == [1, 1, 1]
+    assert list_converter([2, 2, 1]) == [1, 2, 2]
