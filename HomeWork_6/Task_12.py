@@ -15,9 +15,13 @@ def list_generator(list_dimension):
 
 def list_2_dict(some_list):
     my_dict = {}
-    for i in range(len(some_list)):
+    for i in range(len(some_list) - 1):
         if i % 2 == 0:
-            my_dict[some_list[i]] = some_list[i + 1]
+            if some_list[i] in my_dict.keys():
+                some_list[i] = str(some_list[i]) + '_duplicate'
+                my_dict[some_list[i]] = some_list[i + 1]
+            else:
+                my_dict[some_list[i]] = some_list[i + 1]
     return my_dict
 
 
