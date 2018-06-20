@@ -13,7 +13,7 @@ class AutoSalon:
     def __init__(self, name=None, address=None, available_cars=[]):
             self.name = name
             self.address = address
-            self.available_cars = available_cars[:]
+            self.available_cars = available_cars
 
     def addcar(self, new_cars):
         if isinstance(new_cars, list):
@@ -56,6 +56,7 @@ if __name__ == '__main__':
     # 0. инициализация начальных данных с выводом информации на экран
     cars_in_salon1 = ['Audi', 'Bmw', 'VW']
     salon1 = AutoSalon('BestAuto', 'ABC street, 12', cars_in_salon1)
+    print('0. Отображение информации по салону')
     salon1.show_info()
 
     # 1. отображение всех доступных машин
