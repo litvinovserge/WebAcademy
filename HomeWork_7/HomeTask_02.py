@@ -32,14 +32,12 @@ class AutoSalon:
         elif isinstance(buyed_cars, str):
             self.available_cars.remove(buyed_cars)
 
-
     def check_availability(self, check_car):
         for car in self.available_cars:
             if car == check_car:
                 print('Такая машина есть в салоне', self.name, 'Находящийся по адресу', self.address)
                 exit()
         print('Такого автомобиля в салоне нет')
-
 
     def show_info(self):
         print(self)
