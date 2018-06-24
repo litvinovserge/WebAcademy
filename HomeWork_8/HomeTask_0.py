@@ -11,7 +11,7 @@ rates = {
 
 
 class Exchanger:
-    def __init__(self, base_currency='', output_currency='', money=1):
+    def __init__(self, base_currency='', output_currency='', money=''):
         self.base_currency = base_currency
         self.output_currency = output_currency
         self.money = money
@@ -20,7 +20,7 @@ class Exchanger:
         try:
             self.money = float(self.money)
         except ValueError:
-            return 'Вы неверно задали значение кол-ва средств'
+            return 'Вы неверно задали сумму для конвертации'
         try:
             pre_result = float(self.money) * rates.get(self.base_currency.upper())
         except TypeError:
