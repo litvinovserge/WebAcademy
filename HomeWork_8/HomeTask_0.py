@@ -3,10 +3,10 @@
 Дoлжен перехватывать все возможные ошибки, работать в цикле.
 """
 rates = {
-    'UAH' : 1,
-    'USD' : 26,
-    'EUR' : 31,
-    'FNT' : 35
+    'UAH': 1,
+    'USD': 26,
+    'EUR': 31,
+    'FNT': 35
 }
 
 
@@ -16,7 +16,7 @@ class Exchanger:
         self.output_currency = output_currency
         self.money = money
 
-    def conversion(self):
+    def exchange(self):
         try:
             self.money = float(self.money)
         except ValueError:
@@ -32,14 +32,14 @@ class Exchanger:
         return round(result, 2)
 
     def exchange_success(self):
-        if isinstance(self.conversion(), float):
+        if isinstance(self.exchange(), float):
             return True
         return False
 
     def __str__(self):
         output = [
             f'Начальная валюта: {self.money} {self.base_currency.upper()}',
-            f'Результат конвертации: {self.conversion()} {self.output_currency.upper()}'
+            f'Результат конвертации: {self.exchange()} {self.output_currency.upper()}'
         ]
         return '***\n' + '\n'.join(output)
 
