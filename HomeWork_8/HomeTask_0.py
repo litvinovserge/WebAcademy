@@ -11,6 +11,7 @@ rates = {
 
 
 class Exchanger:
+    
     def __init__(self, base_currency='', output_currency='', money=''):
         self.base_currency = base_currency
         self.output_currency = output_currency
