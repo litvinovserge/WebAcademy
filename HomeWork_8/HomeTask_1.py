@@ -11,11 +11,11 @@ class CalcError(Exception):
 
 
 class Calculator:
-    __MY_OPERATIONS = ['+', '-', '*', '\ ']
+    __MY_OPERATIONS = ['+', '-', '*', '/']
 
     def __init__(self):
         self.version = '*** CALCULATOR ver.0.0.1 Beta ***'
-        self.instruction = 'Для выхода из калькулятора введите: exit'
+        self.instruction = '*** Для выхода из калькулятора введите: exit ***'
 
     # custom exceptions для класса Calculator
     def __input_analyzer(self, some_input):
