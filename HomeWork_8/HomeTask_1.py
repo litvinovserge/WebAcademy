@@ -14,7 +14,8 @@ class Calculator:
     __MY_OPERATIONS = ['+', '-', '*', '\ ']
 
     def __init__(self):
-        pass
+        self.version = '*** CALCULATOR ver.0.0.1 Beta ***'
+        self.instruction = 'Для выхода из калькулятора введите: exit'
 
     # custom exceptions для класса Calculator
     def __input_analyzer(self, some_input):
@@ -65,11 +66,13 @@ class Calculator:
             return eval(self.__input_analyzer(some_data))
         except CalcError:
             print(f'{CalcError.__name__} : {CalcError.message}')
+        return 'Описание ошибки выше'
 
 
 if __name__ == '__main__':
     calc = Calculator()
     user_input = ''
+    print(f'{calc.version}\n{calc.instruction}')
     while user_input.lower() != 'exit':
-        user_input = input('*** CALCULATOR ***\nДля выхода из калькулятора введите: exit\nСтрока ввода: ')
-        print(calc.calculation(user_input))
+        user_input = input('Строка ввода: ')
+        print(f'Результат: {calc.calculation(user_input)}')
