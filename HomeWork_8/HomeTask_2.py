@@ -40,7 +40,7 @@ class Employee:
             EmployeeErrors.message = 'Эй! Наша компания создана в 2010'
             raise EmployeeErrors
 
-    def __departments_ruler(self):
+    def __department_ruler(self):
         if self.department not in self.__DEPARTMENTS:
             EmployeeErrors.message = 'OOPS, у нас такого департамента пока нет! Выбирай из: ' + \
                                      ' | '.join(self.__DEPARTMENTS)
@@ -58,7 +58,7 @@ class Employee:
         except EmployeeErrors:
             print(EmployeeErrors.message)
         try:
-            self.__departments_ruler()
+            self.__department_ruler()
         except EmployeeErrors:
             print(EmployeeErrors.message)
         try:
