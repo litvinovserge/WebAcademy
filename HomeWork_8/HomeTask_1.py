@@ -16,13 +16,14 @@ class Calculator:
     def __init__(self):
         pass
 
+    # custom exceptions для класса Calculator
     def __input_analyzer(self, some_input):
         analyzer = []
         for symbol in some_input.split(' '):
             if symbol != '':
                 analyzer.append(symbol)
 
-        # проверяем наличие цифр
+        # 1. проверяем наличие цифр
         counter = 0
         for item in analyzer:
             if item not in self.__MY_OPERATIONS and item.isdigit():
@@ -41,7 +42,7 @@ class Calculator:
                                 'Ждите обновленную версию калькулятора =)'
             raise CalcError
 
-        # проверяем введены ли допустимые мат. операции
+        # 2. проверяем введены ли допустимые мат. операции
         counter = 0
         for item in analyzer:
             if item in self.__MY_OPERATIONS:
@@ -56,19 +57,19 @@ class Calculator:
                                          ' , '.join(self.__MY_OPERATIONS) + '\nВводите их через пробел после числа.'
             raise CalcError
 
-        # возвращаем правильную строку
+        # 3. возвращаем чистую строку для обработки
         return ' '.join(analyzer)
 
     def calculation(self, some_data):
         try:
             return eval(self.__input_analyzer(some_data))
         except CalcError:
-            print(CalcError.message)
+            print(f'{CalcError.__name__} : {CalcError.message}')
 
 
 if __name__ == '__main__':
     calc = Calculator()
     user_input = ''
     while user_input.lower() != 'exit':
-        user_input = input(('*** CALCULATOR ***\nДля выхода из калькулятора введите exit\nСтрока ввода: '))
+        user_input = input('*** CALCULATOR ***\nДля выхода из калькулятора введите: exit\nСтрока ввода: ')
         print(calc.calculation(user_input))
