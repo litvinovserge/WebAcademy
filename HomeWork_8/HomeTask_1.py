@@ -18,26 +18,9 @@ class Calculator:
 
     def __input_analyzer(self, some_input):
         analyzer = []
-
         for symbol in some_input.split(' '):
             if symbol != '':
                 analyzer.append(symbol)
-
-        # проверяем введены ли допустимые мат. операции
-        counter = 0
-        for item in analyzer:
-            if item in self.__MY_OPERATIONS:
-                counter += 1
-        if counter <= 0:
-            CalcError.message = ''.join(['Введенные мат. операции не поддерживаются! Пробуйте следующие: ',
-                                         ' , '.join(self.__MY_OPERATIONS), 'Вводите их через пробел после числа.'
-                                         ])
-            raise CalcError
-        if counter > 1:
-            CalcError.message = ''.join(['Вы ввели несколько операций! Калькулятор работает со следующими операциями:',
-                                         ' , '.join(self.__MY_OPERATIONS), 'Вводите их через пробел после числа.'
-                                         ])
-            raise CalcError
 
         # проверяем наличие цифр
         counter = 0
@@ -48,7 +31,7 @@ class Calculator:
             CalcError.message = 'Неверный ввод данных! Вводите данные в формате: ЧИСЛО_МАТ.ОПЕРАЦИЯ_ЧИСЛО'
             raise CalcError
         elif counter <= 0:
-            CalcError.message = 'Вы не ввели чисел. Это всё-таки калькулятор.'
+            CalcError.message = 'Вы не ввели чисел. Это всё-таки калькулятор!'
             raise CalcError
         elif counter == 1:
             CalcError.message = 'Вы ввели лишь одно число, нужно два. Числа от мат.операции должны отделяться пробелом.'
@@ -57,6 +40,23 @@ class Calculator:
             CalcError.message = 'Этот калькулятор работает лишь с двумя числами =( ' + \
                                 'Ждите обновленную версию калькулятора =)'
             raise CalcError
+
+        # проверяем введены ли допустимые мат. операции
+        counter = 0
+        for item in analyzer:
+            if item in self.__MY_OPERATIONS:
+                counter += 1
+        if counter <= 0:
+            CalcError.message = 'Введенные мат. операции не поддерживаются! Пробуйте следующие: ' + \
+                                         ' , '.join(self.__MY_OPERATIONS) + '\nВводите их через пробел после числа.'
+
+            raise CalcError
+        elif counter > 1:
+            CalcError.message = 'Вы ввели несколько операций! Калькулятор работает со следующими операциями:' + \
+                                         ' , '.join(self.__MY_OPERATIONS) + '\nВводите их через пробел после числа.'
+            raise CalcError
+
+        # возвращаем правильную строку
         return ' '.join(analyzer)
 
     def calculation(self, some_data):
