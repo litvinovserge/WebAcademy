@@ -10,7 +10,7 @@ from datetime import *
 
 class EmployeeError(ValueError):
 
-    def __init__(self, *messages):
+    def __init__(self, messages='Other EmployeeError'):
         self.message = messages
 
 
