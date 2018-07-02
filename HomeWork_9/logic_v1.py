@@ -29,8 +29,7 @@ class TicTacToe:
             current_line = ''
             for element in line:
                 current_line += element
-            if self.is_winner(current_line):
-                return True
+            return self.is_winner(current_line)
 
     # 2 - поиск победителя по вертикали - по столбцам
     def vertical_check(self):
@@ -38,29 +37,26 @@ class TicTacToe:
             current_column = ''
             for column in range(len(self.current_game[line])):
                 current_column += self.current_game[column][line]
-            if self.is_winner(current_column):
-                return True
+            return self.is_winner(current_column)
 
     # 3 - поиск победителя по главной диагонали
     def diagonal_main_check(self):
         current_diagonal = ''
         for i in range(len(self.current_game)):
             current_diagonal += self.current_game[i][i]
-        if self.is_winner(current_diagonal):
-            return True
+        return self.is_winner(current_diagonal)
 
     # 4 - поиск победителя по обратной диагонали
     def diagonal_reverse_check(self):
         current_diagonal = ''
         for i in range(len(self.current_game)):
             current_diagonal += self.current_game[-i - 1][i]
-        if self.is_winner(current_diagonal):
-            return True
+        return self.is_winner(current_diagonal)
 
 
 if __name__ == '__main__':
     test = [
-        ['x', 'q', 's', 'x', 'q'],
+        ['x', 'q', 's', 'x', 'a'],
         ['a', 'x', 'o', 'x', ''],
         ['x', '', 'x', 'i', ''],
         ['w', 'x', '', 'x', ''],
