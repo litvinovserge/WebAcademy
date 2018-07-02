@@ -19,7 +19,7 @@ class TicTacToeGUI(QtWidgets.QMainWindow):
         '3 x 3', '4 x 4', '5 x 5', '6 x 6', '7 x 7', '8 x 8', '9 x 9'
     ]  # варианты размера сетки для combobox
 
-    def __init__(self, grid_size=3):
+   def __init__(self, grid_size=3):
         super().__init__()
         self.grid_size = grid_size  # размер сетки для игры
         self.moves_counter = 0  # счетчик ходов
@@ -85,13 +85,8 @@ class TicTacToeGUI(QtWidgets.QMainWindow):
         sender = self.sender()
         # 4.1 - обработка button "New Game"
         if self.btn_new_game.objectName() == sender.objectName():
-            for ay in range(self.grid_size):
-                for ax in range(self.grid_size):
-                    self.moves_counter = 0
-                    self.game_history = [[''] * self.grid_size for i in range(self.grid_size)]
-                    self.statusBar().showMessage(f'It"s PLAYER "X" turn  ||  Total moves: {self.moves_counter}')
-                    self.btn_grid[ay][ax].setEnabled(True)
-                    self.btn_grid[ay][ax].setText('---')
+            self.close()
+            self.__init__(self.grid_size)
         # 4.2 - обработка button "Close Game"
         elif self.btn_close_game.objectName() == sender.objectName():
             self.close()
@@ -123,9 +118,9 @@ class TicTacToeGUI(QtWidgets.QMainWindow):
     # 5 - обрабатываем combobox
     def cmb_box_pressed(self):
         sender = self.sender()
-        print(sender.currentIndex())
+        self.grid_size = sender.currentIndex() + 2
         self.close()
-        self.__init__(sender.currentIndex() + 2)
+        self.__init__(self.grid_size)
 
 
 if __name__ == '__main__':
