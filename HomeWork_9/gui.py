@@ -1,5 +1,3 @@
-__author__ = 'Sergey Litvinov'
-
 import sys
 import logic_v1
 from PyQt5 import QtWidgets, QtGui, QtCore

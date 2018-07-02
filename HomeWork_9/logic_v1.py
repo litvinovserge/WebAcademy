@@ -1,6 +1,3 @@
-__author__ = 'Sergey Litvinov'
-
-
 class TicTacToe:
     """
     Main Logic class - для игры крестики-нолики. Работает только с игровой сеткой NxN
