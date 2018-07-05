@@ -1,5 +1,5 @@
 """
- Переписать информацию с одного файла в другой.
+Переписать информацию с одного файла в другой.
 """
 TARGET_FILE = 'HomeTask_01_file'
 EXTENSION = '.txt'
@@ -7,6 +7,6 @@ EXTENSION = '.txt'
 
 if __name__ == '__main__':
     with open(TARGET_FILE + EXTENSION) as file:
-        asd = file.read
-        with open(TARGET_FILE + 'copy' + EXTENSION, 'w') as file_copy:
-            file_copy.write(file.read())
+        buffer = file.read()
+    with open(TARGET_FILE + 'copy' + EXTENSION, 'w') as file_copy:
+        file_copy.write(buffer)
