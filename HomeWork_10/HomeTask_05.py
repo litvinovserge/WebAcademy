@@ -78,7 +78,7 @@ class UserForm:
         if not os.path.isfile(self.LOCAL_BASE):
             with open(self.LOCAL_BASE, 'w') as file:
                 json.dump([], file)
-        elif not os.path.isfile(self.TEMP_FILE):
+        if not os.path.isfile(self.TEMP_FILE):
             with open(self.TEMP_FILE, 'w') as file:
                 pass
 
@@ -103,7 +103,6 @@ class UserForm:
     def registration(self):
         user_name = input('Введите ваше имя: ')
         user_login = input('Введите login: ')
-        print(self.check_duplicate_login(user_login))
         while self.check_duplicate_login(user_login):
             print('Такой login уже есть в базе, попробуйте другой!')
             user_login = input('Введите login: ')
@@ -115,10 +114,10 @@ class UserForm:
         }
         with open(self.LOCAL_BASE) as file:
             buffer = json.load(file)
-            buffer.append(database_unit)
+        buffer.append(database_unit)
         with open(self.LOCAL_BASE, 'w') as file:
             json.dump(buffer, file)
-        print('Поздравляем! Теперь Вы можете пройти процесс авторизации / входа в систему!')
+        print(f'Поздравляем, {user_name}! Теперь Вы можете пройти процесс авторизации в нашей системе!')
 
     # 2 - авторизация пользователей
     def authorization(self):
