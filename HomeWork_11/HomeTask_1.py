@@ -24,8 +24,8 @@ class Person:
         self.name = name
         self.lastname = lastname
         self.age = age
-        if not all((name, lastname, age)):
-            self.name, self.lastname, self.age = self.person_generator().__next__()
+        if not any((name, lastname, age)):
+            self.name, self.lastname, self.age = self.person_generator(self.name, self.lastname, self.age).__next__()
 
     @staticmethod
     def person_generator(name=None, lastname=None, age=None):
@@ -37,7 +37,7 @@ class Person:
                 lastname = random.choice([each.strip() for each in file.read().split(',')])
         if not age:
             age = random.randint(AGE_LIMITS[0], AGE_LIMITS[1])
-        yield [name, lastname, int(age)]
+        yield [name, lastname, age]
 
 
 if __name__ == '__main__':
