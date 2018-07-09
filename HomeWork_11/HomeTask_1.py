@@ -21,6 +21,9 @@ AGE_LIMITS = [18, 80]
 class Person:
 
     def __init__(self, name=None, lastname=None, age=None):
+        self.name = name
+        self.lastname = lastname
+        self.age = age
         if not all((name, lastname, age)):
             self.name, self.lastname, self.age = self.person_generator().__next__()
 
