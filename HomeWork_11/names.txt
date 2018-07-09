@@ -146,5 +146,4 @@ Derick,
 Jamila,
 Sacha,
 Danille,
-Bradford,
-Christopher
+Bradford
