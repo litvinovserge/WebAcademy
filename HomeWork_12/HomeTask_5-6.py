@@ -48,7 +48,6 @@ def str_representation(some_class):
 
 if __name__ == '__main__':
     group_of_people = [Person() for i in range(10)]
-    xxx = sorted(group_of_people, key=lambda each: each.age)
     print(
         f'Начальная группа людей: {str_representation(group_of_people)}',
         f'Сортируем группу по возрасту:, {str_representation(sorted(group_of_people, key=lambda each: each.age))}',
