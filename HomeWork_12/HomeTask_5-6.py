@@ -36,7 +36,10 @@ if __name__ == '__main__':
     group_of_people = []
     for i in range(10):
         group_of_people.append(Person())
-    print('Начальная группа людей:', group_of_people)
-    print('Сортируем группу по возрасту:', sorted(group_of_people, key=lambda each: each[1]))
-    print('Находим самого старшего:', max(group_of_people, key=lambda each: each[1]))
-    print('Находим самого старшего:', min(group_of_people, key=lambda each: each[1]))
+    print(
+        f'Начальная группа людей:, {group_of_people}',
+        f'Сортируем группу по возрасту:, {sorted(group_of_people, key=lambda each: each[1])}',
+        f'Находим самого старшего: {max(group_of_people, key=lambda each: each[1])}',
+        f'Находим самого старшего: {min(group_of_people, key=lambda each: each[1])}',
+        sep='\n'
+    )
