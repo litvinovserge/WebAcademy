@@ -6,7 +6,6 @@ words = ['Lorem', ' ipsum', 'dolor ', 'sit', 'amet,', ' ', 'consectetur', 'adipi
 ' ', 'sed', 'do', '', 'eiusmod', ' ', ' tempor', 'incididunt', 'ut', ' ' 'labore', ' et ',
 'dolore', ' magna', 'aliqua.']
 
-
 Результат:
 ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua.''
