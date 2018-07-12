@@ -21,8 +21,8 @@
 if __name__ == '__main__':
 
     # 1
-    values = ['1', '34', '2', '6', '18', '19']
-    print('Task 1:', *map(int, sorted(values, key=int)))
+    some_string = '1,34,2,6,18,19'
+    print('Task 1:', ','.join(sorted(some_string.split(','), key=int)))
 
     # 2
     values = ['hello', '', 'world', '', '', '', '!!']

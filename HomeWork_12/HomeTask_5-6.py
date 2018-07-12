@@ -8,6 +8,8 @@
 
 2. Найти самого старшего человека.
 3. Найти самого младшего человека.
+
+list(map(lambda x: str(x), group_of_people))
 """
 import random
 
@@ -15,12 +17,16 @@ NAMES = 'names.txt'
 AGE_LIMITS = [18, 80]
 
 
-class Person(list):
+class Person:
 
     def __init__(self, name=None, age=None):
-        super(Person, self).__init__([name, age])
+        self.name = name
+        self.age = age
         if not any((name, age)):
-            self[0], self[1] = next(self.person_generator(name, age))
+            self.name, self.age = next(self.person_generator())
+
+    def __str__(self):
+        return f'{self.name}: {self.age}yo'
 
     @staticmethod
     def person_generator(name=None, age=None):
@@ -32,14 +38,21 @@ class Person(list):
         yield [name, age]
 
 
+def str_representation(some_class):
+    """
+    :param some_class: принимаем экземляр/экземпляры любого класса
+    :return: список с элементами в строковом представлением класса
+    """
+    return list(map(lambda x: str(x), some_class))
+
+
 if __name__ == '__main__':
-    group_of_people = []
-    for i in range(10):
-        group_of_people.append(Person())
+    group_of_people = [Person() for i in range(10)]
+    xxx = sorted(group_of_people, key=lambda each: each.age)
     print(
-        f'Начальная группа людей:, {group_of_people}',
-        f'Сортируем группу по возрасту:, {sorted(group_of_people, key=lambda each: each[1])}',
-        f'Находим самого старшего: {max(group_of_people, key=lambda each: each[1])}',
-        f'Находим самого старшего: {min(group_of_people, key=lambda each: each[1])}',
+        f'Начальная группа людей: {str_representation(group_of_people)}',
+        f'Сортируем группу по возрасту:, {str_representation(sorted(group_of_people, key=lambda each: each.age))}',
+        f'Находим самого старшего: {max(group_of_people, key=lambda each: each.age)}',
+        f'Находим самого старшего: {min(group_of_people, key=lambda each: each.age)}',
         sep='\n'
     )

@@ -66,9 +66,11 @@ def allow_admin_2(dec_args):
     def decorator(some_function):
 
         def wrapper(*args, **kwargs):
-            # я не понял зачем нам аргументы в декораторе? как передать понятно, но само задание 8.2 непонимаию
-            # не понял в чем функциональная разница задания 8.1 от 8.2
-            print(dec_args)
+            if args[0].role in dec_args:
+                print(True)
+                some_function(*args, **kwargs)
+            else:
+                print('Panel is not permitted! Get OUT!\n***')
 
         return wrapper
 
@@ -97,3 +99,12 @@ if __name__ == '__main__':
     show_panel(tester1)
     print('Результат выполнения функции show_panel для пользователя tester2')
     show_panel(tester2)
+
+    # тестируем декоратор для задания - 2
+    tester1 = User('Sergey', '123', 'admin')
+    tester2 = User('Vasya', '321', 'user')
+    print('Инициализируем двух пользователей\n{} и {}\n***'.format(f'tester1: {tester1}', f'tester2: {tester2}'))
+    print('Результат выполнения функции show_panel_2 для пользователя tester1')
+    show_panel_2(tester1)
+    print('Результат выполнения функции show_panel_2 для пользователя tester2')
+    show_panel_2(tester2)
