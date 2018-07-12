@@ -67,7 +67,6 @@ def allow_admin_2(dec_args):
 
         def wrapper(*args, **kwargs):
             if args[0].role in dec_args:
-                print(True)
                 some_function(*args, **kwargs)
             else:
                 print('Panel is not permitted! Get OUT!\n***')
