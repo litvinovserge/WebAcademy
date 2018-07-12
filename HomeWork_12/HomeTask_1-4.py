@@ -22,15 +22,15 @@ if __name__ == '__main__':
 
     # 1
     values = ['1', '34', '2', '6', '18', '19']
-    print('Task 1:', list(map(int, sorted(values, key=int))))
+    print('Task 1:', *map(int, sorted(values, key=int)))
 
     # 2
     values = ['hello', '', 'world', '', '', '', '!!']
-    print('Task 2:', list(filter(lambda x: x != '', values)))
+    print('Task 2:', *filter(lambda x: x != '', values))
 
     # 3
     values = [{'id': 1, 'value': 0}, {'id': 2, 'value': 256}, {'id': 4, 'value': 0}, {'id': 10, 'value': 1024}]
-    print('Task 3:', list(filter(lambda x: x['value'] != 0, values)))
+    print('Task 3:', *filter(lambda x: x['value'] != 0, values))
 
     # 4
     values = [-10, 12, 6, -4, -2, 8]
