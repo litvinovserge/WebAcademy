@@ -89,10 +89,10 @@ def show_panel_2(user: User):
 
 
 if __name__ == '__main__':
-
-    # тестируем декоратор для задания - 1
     tester1 = User('Sergey', '123', 'admin')
     tester2 = User('Vasya', '321', 'user')
+
+    # тестируем декоратор для задания - 1
     print('Инициализируем двух пользователей\n{} и {}\n***'.format(f'tester1: {tester1}', f'tester2: {tester2}'))
     print('Результат выполнения функции show_panel для пользователя tester1')
     show_panel(tester1)
@@ -100,8 +100,6 @@ if __name__ == '__main__':
     show_panel(tester2)
 
     # тестируем декоратор для задания - 2
-    tester1 = User('Sergey', '123', 'admin')
-    tester2 = User('Vasya', '321', 'user')
     print('Инициализируем двух пользователей\n{} и {}\n***'.format(f'tester1: {tester1}', f'tester2: {tester2}'))
     print('Результат выполнения функции show_panel_2 для пользователя tester1')
     show_panel_2(tester1)
