@@ -1,5 +1,5 @@
 ### HomeWork_13
-### Theme: Flask Framework
+### Theme: Flask Framework <a href="https://www.tutorialspoint.com/flask" target="_blank">Doc1</a>, <a href="http://flask.pocoo.org/docs/1.0/" target="_blank">Doc2</a>, <a href="https://habr.com/post/193242/" target="_blank">Doc3</a>
 ###
 - **HomeTask_1-2** <br />
 <ol>
