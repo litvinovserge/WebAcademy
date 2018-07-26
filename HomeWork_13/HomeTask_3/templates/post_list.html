@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Обьявления{% endblock %}
+{% block content %}
+    <div><a class="btn btn-info" role="button" href="{{ url_for('new_post') }}">Добавить обьявление</a></div><br>
+    <div>
+        <ul class="list-group list-group-flush">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <h5>{{ post['name'] }} -- {{ post['email'] }}</h5>
+                <div style="font-style: italic">{{ post['date'] }}</div>
+                <div>{{ post['text'] }}</div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
