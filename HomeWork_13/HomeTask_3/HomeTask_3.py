@@ -10,9 +10,9 @@ import datetime
 app = Flask(__name__)
 
 posts = [
-    {'name': 'Илья', 'text': 'Продам гараж! 500грн. Звоните 0500351357', 'date': '2018-7-11', 'email': 'ilya@mail.com'},
-    {'name': 'Дмитрий', 'text': 'Потерял телефон. Iphone 6s 0662434658', 'date': '2018-7-12', 'email': 'dima@mail.com'},
-    {'name': 'Даша', 'text': 'Куплю гараж!', 'date': '2018-7-13', 'email': 'daria@mail.com'},
+    {'name': 'Илья', 'email': 'ilya@mail.com', 'text': 'Продам гараж! 500грн. Звоните 0500351357', 'date': '2018-7-11'},
+    {'name': 'Дмитрий', 'email': 'dima@mail.com', 'text': 'Потерял телефон. Iphone 6s 0662434658', 'date': '2018-7-12'},
+    {'name': 'Даша', 'email': 'daria@mail.com', 'text': 'Куплю гараж!', 'date': '2018-7-13'},
 ]
 
 
