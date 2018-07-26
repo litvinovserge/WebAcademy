@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Generator</title>
+</head>
+<body>
+    <div align="middle" style="padding-top:100px">
+        <h3>Случайное число:</h3>
+        <p>Нажмите кнопку "Сгенерировать" для отображения случайного числа</br>
+            <b>Можно задать границы для диапазона генерации чисел</b>
+        </p>
+
+        <form method="POST" action="{{ url_for('generator') }}" style="margin-top:10px;">
+            <input type="text" name="min_gen_number" placeholder="нижняя граница" style="margin-right: 20px; width: 170px">
+            <input type="text" name="max_gen_number" placeholder="верхняя граница" style="width: 170px"></br>
+            <button type="submit" class="btn btn-success" style="margin-top:20px; font-size:14pt; width: 360px">Сгенерировать</button>
+        </form>
+
+    </div>
+</body>
+</html>
