@@ -18,7 +18,6 @@ import telebot
 import datetime
 import os.path
 
-
 LOG_FILE = 'tmp.log'
 
 # telegram bot initialization
@@ -81,6 +80,5 @@ def handle_files(message):
 
 if __name__ == '__main__':
     updates = bot.get_updates()
-
     bot.polling(none_stop=True, interval=0)
 
