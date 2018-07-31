@@ -1,8 +1,5 @@
 """
 @bot.message_handler(commands=COMMANDS_LIST)
-def handle_c1(message):
-    bot.send_message(message.chat.id, 'COMMANDS OK')
-
 @bot.message_handler
     content_types=['text']
     content_types=['commands']
@@ -14,17 +11,20 @@ def handle_c1(message):
 import telebot
 import datetime
 import os.path
+import pytz
 
 LOG_FILE = 'log.txt'
+TZ = 'Europe/Kiev'
+ADMINS = ['=====']
 
 # telegram bot initialization
-TOKEN = '============================'
+TOKEN = '============================='
 COMMANDS_LIST = ['/com1', '/com2', '/com3', '/log']
 bot = telebot.TeleBot(TOKEN)
 
 
 def bot_log(username, chat, request, message, answer):
-    current_date = datetime.datetime.now()
+    current_date = datetime.datetime.now(pytz.timezone(TZ))
     if not os.path.isfile(LOG_FILE):
         mode = 'w'
     else:
@@ -37,22 +37,32 @@ def bot_log(username, chat, request, message, answer):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
+
+    # processing telegram bot COMMANDS
     if message.text in COMMANDS_LIST:
         request_type = 'commands'
-        if message.text == '/log':
-            doc = open(LOG_FILE, 'r')
-            answer = doc.name
-            bot_log(message.chat.username, message.chat.id, request_type, message.text, answer)
-            bot.send_document(message.chat.id, doc)
+        # give permissions only to users from ADMINS list
+        if message.chat.username in ADMINS:
+            if message.text == '/log':
+                doc = open(LOG_FILE, 'r')
+                bot.send_document(message.chat.id, doc)
+                answer = doc.name
+            else:
+                answer = 'COMMANDS OK'
+                bot.send_message(message.chat.id, answer)
+        # bot feedback to non-ADMIN users
         else:
-            answer = 'COMMANDS OK'
-            bot_log(message.chat.username, message.chat.id, request_type, message.text, answer)
+            answer = 'You are not allowed to give commands'
             bot.send_message(message.chat.id, answer)
+
+    # processing received TEXT
     else:
         request_type = 'text'
         answer = 'TEXT OK'
-        bot_log(message.chat.username, message.chat.id, request_type, message.text, answer)
         bot.send_message(message.chat.id, answer)
+
+    # write events to log file
+    bot_log(message.chat.username, message.chat.id, request_type, message.text, answer)
 
 
 @bot.message_handler(content_types=['document'])
@@ -81,5 +91,5 @@ def handle_files(message):
 
 if __name__ == '__main__':
     updates = bot.get_updates()
-    bot.polling(none_stop=True, interval=0)
+    bot.polling(none_stop=True, interval=1)
 
