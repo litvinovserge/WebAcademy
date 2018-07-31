@@ -18,7 +18,7 @@ import os.path
 LOG_FILE = 'log.txt'
 
 # telegram bot initialization
-TOKEN = '679780471:AAGle4zlZCDpOrBCLPK0lf9QaJBzB04m-Hs'
+TOKEN = '============================'
 COMMANDS_LIST = ['/com1', '/com2', '/com3', '/log']
 bot = telebot.TeleBot(TOKEN)
 
